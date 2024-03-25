@@ -2,7 +2,7 @@
 
 Por: Kevin Alejandro Leal Torres
 
-A día: viernes, 15 de marzo de 2024
+A día: lunes, 25 de marzo de 2024
 
 Para la materia: Computación con Java
 
@@ -64,3 +64,12 @@ public void hand()
 ```
 
 Extrae, muestra y elimina un conjunto de cinco cartas del mazo.
+
+
+### Clase Main
+
+```java
+public static void showMenu()
+```
+
+Crea una CLI ara que el usuario pueda interactuar con la clase Deck mediante el uso de un menú
