@@ -65,6 +65,12 @@ public void hand()
 
 Extrae, muestra y elimina un conjunto de cinco cartas del mazo.
 
+```java
+public boolean isEmpty()
+```
+
+Retorna True si está vacío, False si tiene aunque sea 1 carta
+
 
 ### Clase Main
 
@@ -73,3 +79,9 @@ public static void showMenu()
 ```
 
 Crea una CLI ara que el usuario pueda interactuar con la clase Deck mediante el uso de un menú
+
+## Excepciones
+
+### ArrayIndexOutOfBoundsException
+
+Esta función está presente en los métodos de la clase Deck: hand(), pick(), head(), y sirve para cuando Deck se quedó sin cartas.

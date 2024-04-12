@@ -38,37 +38,50 @@ public class Deck {
 
     /**
      * Muestra y elimina la primera carta del mazo.
+     * @throws ArrayIndexOutOfBoundsException cuando se acaban las cartas
      */
-    public void head() {
+    public void head() throws ArrayIndexOutOfBoundsException {
         if (!cards.isEmpty()) {
             Card card = cards.remove(0);
             System.out.println(card);
             System.out.println("Quedan " + cards.size());
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
         }
     }
 
     /**
      * Imprime la carta que se va a eliminar inmediatamente después
+     * @throws ArrayIndexOutOfBoundsException cuando ya no tiene cartas
     */
-    public void pick() {
+    public void pick() throws ArrayIndexOutOfBoundsException {
         if (!cards.isEmpty()) {
             int randomIndex = (int) (Math.random() * cards.size());
             Card card = cards.remove(randomIndex);
             System.out.println(card);
             System.out.println("Quedan " + cards.size());
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
         }
     }
 
     /**
      * Extrae y muestra un conjunto de cinco cartas del mazo.
+     * @throws ArrayIndexOutOfBoundsException cuando tiene menos de 5 cartas
      */
-    public void hand() {
+    public void hand() throws ArrayIndexOutOfBoundsException {
         if (cards.size() >= 5) {
             for (int i = 0; i < 5; i++) {
                 Card card = cards.remove(0);
                 System.out.println(card);
             }
             System.out.println("Quedan " + cards.size());
+        } else {
+            throw new ArrayIndexOutOfBoundsException();
         }
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
     }
 }

@@ -5,10 +5,14 @@ class Main {
     public static Deck deck = new Deck();
 
     public static void main(String[] args) {
-        showMenu();
+        try {
+            showMenu();
+        } catch (Exception e) {
+            System.err.println("Ha habido un error, vuelvalo a intentar");
+        }
     }
 
-    public static void showMenu() {
+    public static void showMenu() throws Exception {
         var salir = false;
         var scan = new Scanner(System.in);
         short option;
@@ -39,16 +43,21 @@ class Main {
                 continue;
             }
 
-            switch (option) {
-                case 0 -> {
-                    salir = true;
-                    System.out.println("¡Hasta pronto!");
+            try {
+                switch (option) {
+                    case 0 -> {
+                        salir = true;
+                        System.out.println("¡Hasta pronto!");
+                    }
+                    case 1 -> deck.shuffle();
+                    case 2 -> deck.head();
+                    case 3 -> deck.pick();
+                    case 4 -> deck.hand();
+                    default -> System.err.println("Opción no válida");
                 }
-                case 1 -> deck.shuffle();
-                case 2 -> deck.head();
-                case 3 -> deck.pick();
-                case 4 -> deck.hand();
-                default -> System.err.println("Opción no válida");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.err.println("Se han agotado las cartas, gracias por jugar");
+                return;
             }
             System.out.println("Presione Enter para continuar...");
             scan.nextLine();
